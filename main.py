@@ -72,6 +72,29 @@ MENU_ITEMS = [
 ]
 
 
+def input_non_empty(message):
+    """빈 값이 아닐 때까지 반복해서 입력받는다."""
+    while True:
+        value = input(message).strip()
+        if value:
+            return value
+        print("입력값이 비어 있습니다. 다시 입력해주세요.")
+
+
+def input_number(message, min_value, max_value):
+    """min_value~max_value 범위의 정수를 입력받는다. 잘못된 입력이면 None을 반환한다."""
+    value = input(message).strip()
+    try:
+        number = int(value)
+    except ValueError:
+        print("숫자를 입력해주세요.")
+        return None
+    if number < min_value or number > max_value:
+        print(f"{min_value}~{max_value} 사이의 번호를 입력해주세요.")
+        return None
+    return number
+
+
 def show_menu():
     """메인 메뉴를 출력한다."""
     print()
