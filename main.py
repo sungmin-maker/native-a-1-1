@@ -196,6 +196,24 @@ def show_by_category(prompts):
     print(f"\n총 {len(matches)}개의 프롬프트")
 
 
+def search_prompt(prompts):
+    """키워드가 제목 또는 내용에 포함된 프롬프트를 찾는다 (대소문자 무시)."""
+    print("\n=== 프롬프트 검색 ===")
+    keyword = input_non_empty("검색어: ").lower()
+
+    matches = find_prompts(
+        prompts,
+        lambda prompt: keyword in prompt["title"].lower()
+        or keyword in prompt["content"].lower(),
+    )
+    print("\n검색 결과:")
+    if not matches:
+        print("검색 결과가 없습니다.")
+        return
+    print_matches(matches)
+    print(f"\n{len(matches)}개의 프롬프트를 찾았습니다.")
+
+
 def show_menu():
     """메인 메뉴를 출력한다."""
     print()
@@ -218,6 +236,8 @@ def main():
             show_list(prompts)
         elif choice == "3":
             show_by_category(prompts)
+        elif choice == "4":
+            search_prompt(prompts)
         elif choice == "0":
             print("프로그램을 종료합니다.")
             break
