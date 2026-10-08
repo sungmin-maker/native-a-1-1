@@ -95,6 +95,40 @@ def input_number(message, min_value, max_value):
     return number
 
 
+def choose_category():
+    """미리 정의된 카테고리 중 하나를 고르거나 직접 입력받는다."""
+    custom_number = len(CATEGORIES) + 1
+    while True:
+        print("카테고리 선택:")
+        for number, category in enumerate(CATEGORIES, start=1):
+            print(f"{number}) {category}")
+        print(f"{custom_number}) 직접 입력")
+
+        number = input_number("선택: ", 1, custom_number)
+        if number is None:
+            continue
+        if number == custom_number:
+            return input_non_empty("카테고리 이름: ")
+        return CATEGORIES[number - 1]
+
+
+def add_prompt(prompts):
+    """새 프롬프트를 입력받아 목록에 추가한다."""
+    print("\n=== 프롬프트 추가 ===")
+    title = input_non_empty("제목: ")
+    content = input_non_empty("내용: ")
+    print()
+    category = choose_category()
+
+    prompts.append({
+        "title": title,
+        "content": content,
+        "category": category,
+        "favorite": False,
+    })
+    print("\n프롬프트가 추가되었습니다!")
+
+
 def show_menu():
     """메인 메뉴를 출력한다."""
     print()
@@ -111,7 +145,9 @@ def main():
         show_menu()
         choice = input("선택: ").strip()
 
-        if choice == "0":
+        if choice == "1":
+            add_prompt(prompts)
+        elif choice == "0":
             print("프로그램을 종료합니다.")
             break
         else:
