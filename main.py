@@ -244,6 +244,20 @@ def show_detail(prompts):
     print(line)
 
 
+def toggle_favorite(prompts):
+    """선택한 프롬프트의 즐겨찾기 상태를 추가/해제한다."""
+    print("\n=== 즐겨찾기 관리 ===")
+    prompt = select_prompt(prompts)
+    if prompt is None:
+        return
+
+    prompt["favorite"] = not prompt["favorite"]
+    if prompt["favorite"]:
+        print(f"'{prompt['title']}' 프롬프트를 즐겨찾기에 추가했습니다! ⭐")
+    else:
+        print(f"'{prompt['title']}' 프롬프트를 즐겨찾기에서 해제했습니다.")
+
+
 def show_menu():
     """메인 메뉴를 출력한다."""
     print()
@@ -270,6 +284,8 @@ def main():
             search_prompt(prompts)
         elif choice == "5":
             show_detail(prompts)
+        elif choice == "6":
+            toggle_favorite(prompts)
         elif choice == "0":
             print("프로그램을 종료합니다.")
             break
