@@ -5,58 +5,88 @@
 
 CATEGORIES = ["텍스트 생성", "이미지 생성", "영상 생성", "페르소나", "자동화", "기타"]
 
-# 이전 미션(GenAI 기초, 멀티모달 콘텐츠, 노코드 자동화)에서 작성한 프롬프트
+# 이전 미션(멀티모달 콘텐츠 제작 — Lumin 광고 영상)에서 직접 작성한 프롬프트
+# 출처: gen-ai-basic-2 저장소 docs/04_prompts.md (실제 생성에 성공한 씬 1·3·5 + BGM)
 DEFAULT_PROMPTS = [
     {
-        "title": "블로그 글 작성 도우미",
+        "title": "Lumin 광고 씬1 — 퇴근 직후 거실 키비주얼",
         "content": (
-            "당신은 10년 경력의 전문 블로거입니다.\n"
-            "주어진 주제에 대해 SEO에 최적화된 블로그 글을 작성해주세요.\n"
-            "서론, 본론, 결론 구조를 갖추고,\n"
-            "독자의 관심을 끄는 제목을 3개 제안해주세요."
-        ),
-        "category": "텍스트 생성",
-        "favorite": True,
-    },
-    {
-        "title": "제품 썸네일 생성",
-        "content": (
-            "흰색 배경 위에 놓인 [제품명]의 미니멀한 제품 사진,\n"
-            "부드러운 스튜디오 조명, 45도 각도, 그림자는 은은하게,\n"
-            "고해상도, 상업용 광고 스타일, 1:1 비율"
+            "A cluttered living room right after someone came home from work, "
+            "a coat and bag left near the door, shoes kicked off, cold white fluorescent light, "
+            "evening blue-toned atmosphere outside the window, warm amber tone accent, "
+            "cinematic lighting, 35mm lens, shallow depth of field, "
+            "minimal Korean apartment interior, empty room, no people"
         ),
         "category": "이미지 생성",
         "favorite": False,
     },
     {
-        "title": "30초 광고 영상 스크립트",
+        "title": "Lumin 광고 씬1 — 퇴근 직후 거실 모션 (Veo)",
         "content": (
-            "[제품명]을 소개하는 30초 분량의 숏폼 광고 영상 스크립트를 작성해주세요.\n"
-            "장면별로 (화면 설명 / 내레이션 / 자막)을 표로 정리하고,\n"
-            "첫 3초 안에 시청자의 시선을 사로잡는 훅을 넣어주세요."
+            "A cluttered living room right after someone came home from work, "
+            "a coat and bag left near the door, shoes kicked off, cold white fluorescent light, "
+            "evening blue-toned atmosphere outside the window, cinematic lighting, 35mm lens, "
+            "shallow depth of field, minimal Korean apartment interior, empty room, no people. "
+            "Slow subtle push-in camera movement, very slight ambient dust particles in the cold light, "
+            "8 seconds, no camera shake"
+        ),
+        "category": "영상 생성",
+        "favorite": True,
+    },
+    {
+        "title": "Lumin 광고 씬3 — 조명 전환 키비주얼",
+        "content": (
+            "Wide shot of a living room where cold white light is transforming into warm amber light, "
+            "soft scent smoke/particles diffusing gently in the air, visible light gradient across the room, "
+            "cinematic lighting, 35mm lens, shallow depth of field, minimal Korean apartment interior, "
+            "warm amber tone, keep same style as previous images, no visible face"
+        ),
+        "category": "이미지 생성",
+        "favorite": False,
+    },
+    {
+        "title": "Lumin 광고 씬3 — 빛과 향의 변화 모션 (Veo)",
+        "content": (
+            "Wide shot of a living room where cold white light is transforming into warm amber light, "
+            "soft scent smoke/particles diffusing gently in the air, cinematic lighting, 35mm lens, "
+            "shallow depth of field, minimal Korean apartment interior, no visible face. "
+            "Smooth transition of light color temperature from cool white to warm amber across 8 seconds, "
+            "scent particles slowly drifting and diffusing in the light beam, gentle camera drift"
+        ),
+        "category": "영상 생성",
+        "favorite": True,
+    },
+    {
+        "title": "Lumin 광고 씬5 — 제품 실루엣 아웃트로",
+        "content": (
+            "Dark minimal background with the Lumin device silhouette glowing warm amber light in the center, "
+            "soft bokeh light particles, cinematic product photography style, 35mm lens, "
+            "shallow depth of field, warm amber tone, consistent with previous scenes, "
+            "empty negative space on the right side for text overlay"
+        ),
+        "category": "이미지 생성",
+        "favorite": False,
+    },
+    {
+        "title": "Lumin 광고 씬5 — 제품 페이드인 모션 (Veo)",
+        "content": (
+            "Dark minimal background with a smart mood-light and scent diffuser device silhouette "
+            "glowing warm amber light in the center, soft bokeh light particles, "
+            "cinematic product photography style, 35mm lens, shallow depth of field, warm amber tone. "
+            "Slow fade-in of the glowing device from darkness, gentle light pulse, 8 seconds, static camera"
         ),
         "category": "영상 생성",
         "favorite": False,
     },
     {
-        "title": "IT 컨설턴트 페르소나",
+        "title": "Lumin 광고 BGM (38초 로파이)",
         "content": (
-            "당신은 중소기업의 디지털 전환을 돕는 15년 차 IT 컨설턴트입니다.\n"
-            "전문 용어는 쉬운 비유로 풀어 설명하고,\n"
-            "모든 답변의 마지막에는 '바로 실행할 수 있는 다음 단계' 3가지를 제시하세요."
+            "Lo-fi ambient track, warm and calming, soft piano and gentle synth pad, "
+            "slow tempo (around 70 BPM), evening relaxation mood, minimal percussion, "
+            "no vocals, 38 seconds"
         ),
-        "category": "페르소나",
+        "category": "기타",
         "favorite": False,
-    },
-    {
-        "title": "뉴스 요약 자동화",
-        "content": (
-            "아래 뉴스 기사를 읽고 다음 형식으로 요약해주세요.\n"
-            "1) 한 줄 요약 2) 핵심 포인트 3개 3) 우리 업무에 미치는 영향\n"
-            "결과는 슬랙 메시지로 바로 보낼 수 있도록 마크다운으로 작성해주세요."
-        ),
-        "category": "자동화",
-        "favorite": True,
     },
 ]
 

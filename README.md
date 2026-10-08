@@ -57,12 +57,16 @@ python3 main.py        # Windows: python main.py
 
 | 카테고리 | 설명 | 기본 등록 프롬프트 |
 |---|---|---|
-| 텍스트 생성 | 글쓰기, 요약, 이메일 등 텍스트 결과물을 만드는 프롬프트 | 블로그 글 작성 도우미 ⭐ |
-| 이미지 생성 | 이미지 생성 AI에 넣는 장면·스타일 묘사 프롬프트 | 제품 썸네일 생성 |
-| 영상 생성 | 영상 스크립트, 장면 구성 프롬프트 | 30초 광고 영상 스크립트 |
-| 페르소나 | AI에게 역할과 말투를 부여하는 프롬프트 | IT 컨설턴트 페르소나 |
-| 자동화 | 노코드 자동화 흐름 안에서 반복 실행하는 프롬프트 | 뉴스 요약 자동화 ⭐ |
-| 기타 | 위 분류에 속하지 않는 프롬프트 | - |
+| 텍스트 생성 | 글쓰기, 요약, 이메일 등 텍스트 결과물을 만드는 프롬프트 | - |
+| 이미지 생성 | 이미지 생성 AI에 넣는 장면·스타일 묘사 프롬프트 | Lumin 광고 씬1·씬3·씬5 키비주얼 (Imagen) |
+| 영상 생성 | 영상 생성 AI에 넣는 장면·카메라 무빙 프롬프트 | Lumin 광고 씬1 ⭐·씬3 ⭐·씬5 모션 (Veo) |
+| 페르소나 | AI에게 역할과 말투를 부여하는 프롬프트 | - |
+| 자동화 | 노코드 자동화 흐름 안에서 반복 실행하는 프롬프트 | - |
+| 기타 | 위 분류에 속하지 않는 프롬프트 (오디오 등) | Lumin 광고 BGM |
+
+기본 등록된 7개 프롬프트는 이전 미션(멀티모달 콘텐츠 제작)에서 스마트 무드등·디퓨저 **Lumin**의
+38초 광고 영상을 만들 때 직접 작성하고 실제 생성에 성공한 프롬프트입니다.
+([gen-ai-basic-2 / docs/04_prompts.md](https://github.com/sungmin-maker/gen-ai-basic-2/blob/claude/eloquent-shannon-mrrxoi/docs/04_prompts.md))
 
 추가할 때 "직접 입력"을 고르면 새 카테고리를 만들 수 있습니다.
 
@@ -88,9 +92,9 @@ python3 main.py        # Windows: python main.py
 ```python
 prompts = [
     {
-        "title": "블로그 글 작성 도우미",
-        "content": "당신은 10년 경력의 전문 블로거입니다...",
-        "category": "텍스트 생성",
+        "title": "Lumin 광고 씬1 — 퇴근 직후 거실 모션 (Veo)",
+        "content": "A cluttered living room right after someone came home from work, ...",
+        "category": "영상 생성",
         "favorite": True,
     },
 ]
