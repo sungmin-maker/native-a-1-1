@@ -95,3 +95,17 @@ prompts = [
     },
 ]
 ```
+
+## 실행 화면
+
+| 화면 | 파일 |
+|---|---|
+| 개발 환경 확인 (Python/Git 버전, Git 설정, Hello 실행) | [01_env.png](docs/screenshots/01_env.png) |
+| 프롬프트 추가 | [02_add.png](docs/screenshots/02_add.png) |
+| 잘못된 메뉴 입력, 목록, 카테고리별 조회 | [03_list_category.png](docs/screenshots/03_list_category.png) |
+| 검색, 상세 보기 | [04_search_detail.png](docs/screenshots/04_search_detail.png) |
+| 즐겨찾기 추가/해제, 즐겨찾기 목록 | [05_favorites.png](docs/screenshots/05_favorites.png) |
+| `git log --oneline --graph` | [06_git_log.png](docs/screenshots/06_git_log.png) |
+| 공개 샘플 저장소 clone | [07_clone.png](docs/screenshots/07_clone.png) |
+
+![git log graph](docs/screenshots/06_git_log.png)
