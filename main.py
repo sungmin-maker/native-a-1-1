@@ -214,6 +214,36 @@ def search_prompt(prompts):
     print(f"\n{len(matches)}개의 프롬프트를 찾았습니다.")
 
 
+def select_prompt(prompts):
+    """번호를 입력받아 해당 프롬프트를 반환한다. 잘못된 번호면 None."""
+    if not prompts:
+        print("등록된 프롬프트가 없습니다.")
+        return None
+    number = input_number(f"번호 입력 (1~{len(prompts)}): ", 1, len(prompts))
+    if number is None:
+        return None
+    return prompts[number - 1]
+
+
+def show_detail(prompts):
+    """선택한 프롬프트의 전체 내용을 출력한다."""
+    print("\n=== 프롬프트 상세 보기 ===")
+    prompt = select_prompt(prompts)
+    if prompt is None:
+        return
+
+    line = "─" * 40
+    print()
+    print(line)
+    print(f"제목: {prompt['title']}")
+    print(f"카테고리: {prompt['category']}")
+    print(f"즐겨찾기: {'⭐' if prompt['favorite'] else '-'}")
+    print(line)
+    print("내용:")
+    print(prompt["content"])
+    print(line)
+
+
 def show_menu():
     """메인 메뉴를 출력한다."""
     print()
@@ -238,6 +268,8 @@ def main():
             show_by_category(prompts)
         elif choice == "4":
             search_prompt(prompts)
+        elif choice == "5":
+            show_detail(prompts)
         elif choice == "0":
             print("프로그램을 종료합니다.")
             break
